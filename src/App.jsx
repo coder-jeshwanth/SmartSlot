@@ -25,7 +25,6 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <h1>SmartSlot</h1>
-          <p>Calendar + Time Based Slot Booking - Admin Panel</p>
         </div>
       </header>
 
