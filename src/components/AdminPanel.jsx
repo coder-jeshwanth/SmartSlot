@@ -3,7 +3,7 @@ import { getNext30Days, formatDate, isPastDate } from '../utils/timeUtils';
 import { RefreshCw } from 'lucide-react';
 import TimeRangeModal from './TimeRangeModal';
 import CustomerDetailsModal from './CustomerDetailsModal';
-import './AdminPanel.css';;
+import './AdminPanel.css';
 
 const AdminPanel = ({ availableDates, onAddDate, onRemoveDate, bookedSlots }) => {
   const [pendingDates, setPendingDates] = useState(new Set());
@@ -151,7 +151,7 @@ const AdminPanel = ({ availableDates, onAddDate, onRemoveDate, bookedSlots }) =>
   // Fetch created slots from API
   const fetchCreatedSlots = async () => {
     try {
-      const response = await fetch('/api/admin/dates/simple');
+      const response = await fetch('https://smart-slot-backend.vercel.app/api/admin/dates/simple');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -187,7 +187,7 @@ const AdminPanel = ({ availableDates, onAddDate, onRemoveDate, bookedSlots }) =>
   // Fetch bookings data
   const fetchBookingsData = async () => {
     try {
-      const response = await fetch('/api/admin/bookings/dates');
+      const response = await fetch('https://smart-slot-backend.vercel.app/api/admin/bookings/dates');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -231,7 +231,7 @@ const AdminPanel = ({ availableDates, onAddDate, onRemoveDate, bookedSlots }) =>
       setIsLoading(true);
       
       // Simple DELETE request without JSON body
-      const response = await fetch(`/api/admin/dates/${slotId}`, {
+      const response = await fetch(`https://smart-slot-backend.vercel.app/api/admin/dates/${slotId}`, {
         method: 'DELETE',
       });
 
@@ -350,7 +350,7 @@ const AdminPanel = ({ availableDates, onAddDate, onRemoveDate, bookedSlots }) =>
 
       console.log('Sending request to API:', requestBody);
 
-      const response = await fetch('/api/admin/dates/bulk', {
+      const response = await fetch('https://smart-slot-backend.vercel.app/api/admin/dates/bulk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
